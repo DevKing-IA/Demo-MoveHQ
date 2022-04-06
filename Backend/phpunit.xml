@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd" 
-  backupGlobals="false" 
-  backupStaticAttributes="false" 
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+  backupGlobals="false"
+  backupStaticAttributes="false"
   bootstrap="bootstrap/composer.php"
-  colors="true" 
-  convertErrorsToExceptions="true" 
-  convertNoticesToExceptions="true" 
-  convertWarningsToExceptions="true" 
-  processIsolation="false" 
-  stopOnFailure="false" 
+  colors="true"
+  convertErrorsToExceptions="true"
+  convertNoticesToExceptions="true"
+  convertWarningsToExceptions="true"
+  processIsolation="false"
+  stopOnFailure="false"
   testdox="true">
   <coverage processUncoveredFiles="true">
     <include>
@@ -17,11 +17,8 @@
     </include>
   </coverage>
   <testsuites>
-    <testsuite name="Unit">
-      <directory suffix="Test.php">./tests/Unit</directory>
-    </testsuite>
-    <testsuite name="Feature">
-      <directory suffix="Test.php">./tests/Feature</directory>
+    <testsuite name="Controllers">
+      <directory suffix="Test.php">./tests/Controllers</directory>
     </testsuite>
   </testsuites>
   <php>
