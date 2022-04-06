@@ -22,6 +22,6 @@ Application is using Vue3 as a frontend and Laravel 8 as a backend.
 ## Setup
 Each package has a own setup guide. Check readme in each package directory.
 
-## More about PHP and Vue js
+## More about Laravel and Vue js
 - https://laravel.com/docs/8.x
 - https://vuejs.org/guide/introduction.html
