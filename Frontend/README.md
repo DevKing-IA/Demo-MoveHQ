@@ -10,6 +10,7 @@ npm install
 ```
 npm run serve
 ```
+This will run the dev server at http://localhost:8081. You can change dev server port in `vue.config.js` file.
 
 ### Compiles and minifies for production
 ```
