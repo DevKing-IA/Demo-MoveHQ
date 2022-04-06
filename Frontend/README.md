@@ -1,5 +1,5 @@
 # Demo-MoveHQ application frontend
-This is a frontend part for the demo application.
+This is the frontend package for the demo application.
 
 ## Project setup
 ```
