@@ -7,6 +7,7 @@ It is using Laravel 8 and PHP 8.
 In case you want to create the database for phpunit testing, maybe you will need to create one more database named `movehq_demo_test`.
 2) Copy `.env.example` to `.env` & `.env.testing` and edit as needed (add DB connection details etc)
 2) Run `composer install --ignore-platform-reqs`
+2) Run `php artisan migrate` to run the database migration
 3) Run `php artisan db:seed` - This will insert some test data to the database
 4) Run `PHP artisan server` or `composer serve:app`
 5) Backend should be available here: http://localhost:3005/
