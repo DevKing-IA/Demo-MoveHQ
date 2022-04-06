@@ -1,0 +1,73 @@
+{
+    "name": "movehq-demo/application-backend",
+    "private":true,
+    "type": "project",
+    "description": "MoveHQ demo application backend",
+    "repositories": [],
+    "require": {
+        "php": "^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "erusev/parsedown": "^1.7",
+        "fideloper/proxy": "^4.0",
+        "laravel/framework": "^8.0",
+        "laravel/horizon": "^5",
+        "laravel/octane": "^1.0",
+        "laravel/tinker": "^2.0",
+        "laravel/ui": "^3.4",
+        "nyholm/psr7": "^1.4",
+        "php-curl-class/php-curl-class": "^8.6",
+        "predis/predis": "^1.1",
+        "pusher/pusher-php-server": "^4.1",
+        "spiral/roadrunner": "^2.0",
+        "tymon/jwt-auth": "dev-develop"
+    },
+    "require-dev": {
+        "facade/ignition": "^2.5",
+        "fakerphp/faker": "^1.9",
+        "laravel/sail": "^1.0.1",
+        "mockery/mockery": "^1.4.2",
+        "nunomaduro/collision": "^5.0",
+        "phpunit/phpunit": "^9.3.3"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+                "laravel/horizon"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "MovehqApp\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        },
+        "files": [
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MovehqAppTests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    }
+}

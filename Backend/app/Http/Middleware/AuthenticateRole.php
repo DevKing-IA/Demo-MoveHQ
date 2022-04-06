@@ -1,0 +1,59 @@
+<?php
+
+namespace MovehqApp\Http\Middleware;
+
+use Closure;
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Http\Request;
+
+class AuthenticateRole
+{
+    /**
+     * The Guard implementation.
+     *
+     * @var Guard
+     */
+    protected $auth;
+
+    /**
+     * Create a new filter instance.
+     *
+     * @param Guard $auth
+     * @return void
+     */
+    public function __construct(Guard $auth)
+    {
+        $this->auth = $auth;
+    }
+
+    /**
+     * Handle an incoming request.
+     *
+     * @param Request $request
+     * @param Closure $next
+     * @param string $role
+     * @return mixed
+     */
+    public function handle($request, Closure $next, $role)
+    {
+        $user = $this->auth->user();
+        if ($user) {
+            $roles = explode(',', $user->roles);
+            if (!in_array($role, $roles)) {
+                if ($request->wantsJson()) {
+                    return response('Unauthorized', 401);
+                } else {
+                    return redirect()->guest('/');
+                }
+            }
+        } else {
+            if ($request->wantsJson()) {
+                return response('Unauthorized.', 401);
+            } else {
+                return redirect()->guest('/auth/login');
+            }
+        }
+
+        return $next($request);
+    }
+}
